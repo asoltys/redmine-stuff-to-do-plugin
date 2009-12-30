@@ -5,7 +5,7 @@ class StuffToDoFilter
   
   def initialize
     self.users = User.active
-    self.priorities = get_priorites
+    self.priorities = IssuePriority.find(:all)
     self.statuses = IssueStatus.find(:all)
   end
   
@@ -22,15 +22,5 @@ class StuffToDoFilter
 
     # Finally projects
     yield :projects if StuffToDo.using_projects_as_items?
-  end
-
-  private
-  # Wrapper around Redmine's API since Enumerations changed in r2472
-  def get_priorites
-    if Enumeration.respond_to?(:priorities)
-      return Enumeration.priorities
-    else
-      return IssuePriority.find(:all).map{|i| i.name}
-    end
   end
 end
