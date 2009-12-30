@@ -30,7 +30,7 @@ class StuffToDoFilter
     if Enumeration.respond_to?(:priorities)
       return Enumeration.priorities
     else
-      return Enumeration::get_values('IPRI')
+      return IssuePriority.find(:all).map{|i| i.name}
     end
   end
 end
