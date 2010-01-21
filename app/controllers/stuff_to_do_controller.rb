@@ -15,7 +15,7 @@ class StuffToDoController < ApplicationController
   end
 
   def team
-    @team = Group.first
+    @team = User.current.groups.first
     
     @users = User.active
     @filters = filters_for_view
