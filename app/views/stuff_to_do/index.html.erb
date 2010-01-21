@@ -14,6 +14,13 @@
     <% end %>
   </div>
 
+  <div class="group">
+    <% form_tag({ :controller => 'stuff_to_do', :action => 'group'}, :method => :get, :id => 'group_switch' ) do  %>
+    <label for="group_id">View a team's list</label>
+    <%= collection_select(:group, :id, @groups.sort, :id, :lastname, {:include_blank => 'Select One'}, { :name => 'id'}) %>
+    <% end %>
+  </div>
+
   <div class="filter">
     <% form_tag({}, :id => 'filter_form') do %>
     <label for="filter"><%= l(:stuff_to_do_label_filter) %></label>

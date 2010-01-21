@@ -11,6 +11,7 @@ class StuffToDoController < ApplicationController
     @available = StuffToDo.available(@user, default_filters )
     
     @users = User.active
+    @groups = Group.find(:all)
     @filters = filters_for_view
   end
 

@@ -3,6 +3,7 @@ jQuery(document).ready(function(){
     attachSortables();
 
     jQuery("#user_id").change(function() {  jQuery("form#user_switch").submit();  });
+    jQuery("#group_id").change(function() {  jQuery("form#group_switch").submit();  });
     jQuery("#ajax-indicator").ajaxStart(function(){ jQuery(this).show();  });
     jQuery("#ajax-indicator").ajaxStop(function(){ jQuery(this).hide();  });
 
