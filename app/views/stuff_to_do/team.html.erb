@@ -1,5 +1,4 @@
-<% html_title(l(:stuff_to_do_title)) %>
-<h1><%= l(:stuff_to_do_title) %></h1>
+<h1>What's <%= @team.title %> doing?</h1>
 
 <div class="flash error" style="display:none">
 
@@ -7,7 +6,7 @@
 
 <% @team.users.each do |u| %>
   <% @doing_now = StuffToDo.doing_now(u) %>
-  <h2><%= u.name %></h2>
+  <h2><%= avatar(u, :size => "24") %> <%= u.name %></h2>
   <ol id="doing-now">
     <% unless stuff_for(@doing_now).empty? %>
     <%= render :partial => 'item', :collection => stuff_for(@doing_now) %>
