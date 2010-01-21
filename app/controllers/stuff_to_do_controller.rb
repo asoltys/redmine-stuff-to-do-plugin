@@ -16,8 +16,9 @@ class StuffToDoController < ApplicationController
 
   def team
     @team = User.current.groups.first
+    @leftusers = @team.users[0..@team.users.length/2]
+    @rightusers = @team.users - @leftusers
     
-    @users = User.active
     @filters = filters_for_view
   end
   

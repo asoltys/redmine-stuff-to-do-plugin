@@ -1,22 +1,12 @@
 <h1>What's <%= @team.lastname %> doing?</h1>
 
-<div class="flash error" style="display:none">
-
+<div class="splitcontentleft">
+  <%= render :partial => 'list', :locals => {:users => @leftusers} %>
 </div>
 
-<% @team.users.each do |u| %>
-  <% @doing_now = StuffToDo.doing_now(u) %>
-  <h2><%= avatar(u, :size => "24") %> <%= u.name %></h2>
-  <ol id="doing-now">
-    <% unless stuff_for(@doing_now).empty? %>
-    <%= render :partial => 'item', :collection => stuff_for(@doing_now) %>
-    <% else %>
-    <li class="empty-list">
-      <%= l(:stuff_to_do_drag_issue_create_list) %>
-    </li>
-    <% end %>
-  </ol>
-<% end %>
+<div class="splitcontentright">
+  <%= render :partial => 'list', :locals => {:users => @rightusers} %>
+</div>
 
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag "stuff_to_do.css", :plugin => "stuff_to_do_plugin", :media => 'all' %>

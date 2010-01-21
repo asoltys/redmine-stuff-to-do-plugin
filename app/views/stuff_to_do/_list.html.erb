@@ -1,0 +1,13 @@
+<% users.each do |u| %>
+  <% @doing_now = StuffToDo.doing_now(u) %>
+  <h2><%= avatar(u, :size => "24") %> <%= u.name %></h2>
+  <ol>
+    <% unless stuff_for(@doing_now).empty? %>
+    <%= render :partial => 'item', :collection => stuff_for(@doing_now) %>
+    <% else %>
+    <li class="empty-list">
+      <%= l(:stuff_to_do_drag_issue_create_list) %>
+    </li>
+    <% end %>
+  </ol>
+<% end %>
