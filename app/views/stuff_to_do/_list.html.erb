@@ -6,7 +6,7 @@
     <%= render :partial => 'item', :collection => stuff_for(@doing_now) %>
     <% else %>
     <li class="empty-list">
-      Not doing anything!!!?!?? FIRE THIS PERSON!
+      <%= l(:stuff_to_do_doing_nothing) %>
     </li>
     <% end %>
   </ol>

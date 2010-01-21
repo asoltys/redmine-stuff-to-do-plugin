@@ -6,6 +6,7 @@ en:
   stuff_to_do_text_order_im_doing_it: "In the order I'm doing it"
   stuff_to_do_text_by_project_manager: By the Project Manager
   stuff_to_do_label_view_user_list: "View another user's list:"
+  stuff_to_do_label_view_group_list: "View a group's list:"
   stuff_to_do_text_total_progress: "Total Progress"
   stuff_to_do_text_total_estimates: "Total Estimates"
   stuff_to_do_label_project_manager_emails: Project Manager Emails
@@ -17,3 +18,4 @@ en:
   stuff_to_do_drag_issue_create_list: Drag issues here to create a new list.
   stuff_to_do_drag_issue_remove_list: Drag issues here to remove them from a list.
   stuff_to_do_use_as_stuff_to_do: Use as Stuff To Do items
+  stuff_to_do_doing_nothing: Not doing anything!!??!?  FIRE THIS PERSON!
