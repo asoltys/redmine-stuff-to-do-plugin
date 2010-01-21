@@ -14,10 +14,12 @@ class StuffToDoController < ApplicationController
     @filters = filters_for_view
   end
 
-  def team
-    @team = User.current.groups.first
-    @leftusers = @team.users[0..@team.users.length/2]
-    @rightusers = @team.users - @leftusers
+  def group 
+    return unless params[:id]
+    @group = Group.find(params[:id])
+
+    @leftusers = @group.users[0..@group.users.length/2]
+    @rightusers = @group.users - @leftusers
     
     @filters = filters_for_view
   end
