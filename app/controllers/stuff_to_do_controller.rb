@@ -13,6 +13,13 @@ class StuffToDoController < ApplicationController
     @users = User.active
     @filters = filters_for_view
   end
+
+  def team
+    @team = Group.first
+    
+    @users = User.active
+    @filters = filters_for_view
+  end
   
   def reorder
     StuffToDo.reorder_list(@user, params[:stuff])

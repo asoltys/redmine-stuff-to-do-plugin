@@ -1,0 +1,30 @@
+<% html_title(l(:stuff_to_do_title)) %>
+<h1><%= l(:stuff_to_do_title) %></h1>
+
+<div class="flash error" style="display:none">
+
+</div>
+
+<% @team.users.each do |u| %>
+  <% @doing_now = StuffToDo.doing_now(u) %>
+  <h2><%= u.name %></h2>
+  <ol id="doing-now">
+    <% unless stuff_for(@doing_now).empty? %>
+    <%= render :partial => 'item', :collection => stuff_for(@doing_now) %>
+    <% else %>
+    <li class="empty-list">
+      <%= l(:stuff_to_do_drag_issue_create_list) %>
+    </li>
+    <% end %>
+  </ol>
+<% end %>
+
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag "stuff_to_do.css", :plugin => "stuff_to_do_plugin", :media => 'all' %>
+  <%= javascript_include_tag 'jquery-1.2.6.min.js', :plugin => 'stuff_to_do_plugin' %>
+  <%= javascript_include_tag 'ui/ui.core.js', :plugin => 'stuff_to_do_plugin' %>
+  <%= javascript_include_tag 'ui/ui.sortable.js', :plugin => 'stuff_to_do_plugin' %>
+  <%= javascript_tag("jQuery.noConflict();") %>
+  <%= javascript_include_tag 'stuff-to-do.js', :plugin => 'stuff_to_do_plugin' %>
+  <%= javascript_tag("var user_id = #{@user.id};") %>
+<% end %>
